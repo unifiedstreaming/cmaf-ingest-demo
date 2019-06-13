@@ -25,6 +25,10 @@ docker-compose build cmaf-ingest-image
 
 Which will create a Docker image called cmaf-ingest-image with the ingest source compiled and test files for ingest.
 
+## Test content 
+
+CMAF Test files were encoded using FFmpeg and packaged using mp4 split, 0,96 segments are used, 48 khz audio and 25 hz video 
+is used. Timed text based on fragmented webvtt is included.
 
 ## Usage
 
