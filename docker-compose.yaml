@@ -9,7 +9,7 @@ services:
       - CHANNEL=test
       - PUB_POINT_OPTS=--archiving=0 --mpd.suggested_presentation_delay=4 \
         --mpd.min_buffer_time=2 --dvr_window_length=1800 --restart_on_encoder_reconnect \
-        --suggested_presentation_delay 2 
+        --suggested_presentation_delay 2 --timed_metadata
     healthcheck:
       test: kill -0 1
       interval: 2s
