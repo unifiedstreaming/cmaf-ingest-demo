@@ -19,7 +19,7 @@ services:
     build: ./cmaf-ingest-image
     environment:
        - PUB_POINT_URI=http://live-origin/test/test.isml
-       - CMAF_FILES=tos-096-750k.cmfv tos-096s-128k.cmfa tos-de-096s.cmft tos-en-096s.cmft tos-es-096s.cmft tos-fr-096s.cmft scte-35.cmfm
+       - CMAF_FILES=tos-096-750k.cmfv tos-096s-128k.cmfa tos-de-096s.cmft tos-en-096s.cmft tos-es-096s.cmft tos-fr-096s.cmft
        - CMD_ARGS=-r --chunked
        - LOGO_OVERLAY=
     depends_on:
