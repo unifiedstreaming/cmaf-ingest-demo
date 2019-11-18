@@ -1,5 +1,5 @@
-version: "2.1"
-live-origin:
+version: "2.2"
+  live-origin:
     image: unifiedstreaming/live:latest
     ports:
       - 80:80
