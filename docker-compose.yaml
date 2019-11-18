@@ -7,7 +7,7 @@ services:
     environment:
       - USP_LICENSE_KEY
       - CHANNEL=cmafi
-      - PUB_POINT_OPTS=--timed_metadata --splice_media --fixed_gop=24/25 --hls.minimum_fragment_length=144/25 --hls.client_manifest_version=4 --archiving=1 --archive_length=1200 --archive_segment_length=300 --dvr_window_length=600 --restart_on_encoder_reconnect
+      - PUB_POINT_OPTS=--timed_metadata --splice_media --archiving=1 --archive_length=1200 --archive_segment_length=300 --dvr_window_length=600 --restart_on_encoder_reconnect
     healthcheck:
       test: kill -0 1
       interval: 2s
@@ -17,8 +17,8 @@ services:
     build: ./cmaf-ingest-image
     environment:
        - PUB_POINT_URI=http://live-origin/cmafi/cmafi.isml
-       - CMAF_FILES=tos-096-750k.cmfv tos-096s-128k.cmfa tos-de-096s.cmft tos-en-096s.cmft tos-es-096s.cmft tos-fr-096s.cmft
-       - CMD_ARGS=-r --chunked
+       - CMAF_FILES=tos-096-750k.cmfv tos-096s-128k.cmfa tos-de-096s.cmft tos-en-096s.cmft tos-es-096s.cmft tos-fr-096s.cmft scte-35.cmfm
+       - CMD_ARGS=-r
        - LOGO_OVERLAY=
     depends_on:
       live-origin:
