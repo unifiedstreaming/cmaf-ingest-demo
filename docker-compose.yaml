@@ -1,15 +1,12 @@
 version: "2.1"
-services:
-  live-origin:
+live-origin:
     image: unifiedstreaming/live:latest
     ports:
       - 80:80
     environment:
-      - USP_LICENSE_KEY=<>
-      - CHANNEL=test
-      - PUB_POINT_OPTS=--archiving=0 --mpd.suggested_presentation_delay=4 \
-        --mpd.min_buffer_time=2 --dvr_window_length=1800 --restart_on_encoder_reconnect \
-        --suggested_presentation_delay 2 --timed_metadata
+      - USP_LICENSE_KEY
+      - CHANNEL=cmafi
+      - PUB_POINT_OPTS=--timed_metadata --splice_media --fixed_gop=24/25 --hls.minimum_fragment_length=144/25 --hls.client_manifest_version=4 --archiving=1 --archive_length=1200 --archive_segment_length=300 --dvr_window_length=600 --restart_on_encoder_reconnect
     healthcheck:
       test: kill -0 1
       interval: 2s
@@ -18,7 +15,7 @@ services:
   cmaf-ingest-image:
     build: ./cmaf-ingest-image
     environment:
-       - PUB_POINT_URI=http://live-origin/test/test.isml
+       - PUB_POINT_URI=http://live-origin/cmafi/cmafi.isml
        - CMAF_FILES=tos-096-750k.cmfv tos-096s-128k.cmfa tos-de-096s.cmft tos-en-096s.cmft tos-es-096s.cmft tos-fr-096s.cmft
        - CMD_ARGS=-r --chunked
        - LOGO_OVERLAY=
