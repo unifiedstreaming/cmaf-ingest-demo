@@ -18,7 +18,7 @@ services:
     environment:
        - PUB_POINT_URI=http://live-origin/cmafi/cmafi.isml
        - CMAF_FILES=tos-096-750k.cmfv tos-096s-128k.cmfa tos-de-096s.cmft tos-en-096s.cmft tos-es-096s.cmft tos-fr-096s.cmft scte-35.cmfm
-       - CMD_ARGS=-r
+       - CMD_ARGS=-r --wc_offset
        - LOGO_OVERLAY=
     depends_on:
       live-origin:
