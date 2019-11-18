@@ -1,4 +1,5 @@
 version: "2.2"
+services:
   live-origin:
     image: unifiedstreaming/live:latest
     ports:
