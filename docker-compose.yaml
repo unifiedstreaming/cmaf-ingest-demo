@@ -6,7 +6,7 @@ services:
       - 80:80
     environment:
       - USP_LICENSE_KEY
-      - CHANNEL=cmaf-inges
+      - CHANNEL=cmaf-ingest
       - PUB_POINT_OPTS=--timed_metadata --splice_media --archiving=1 --archive_length=1200 --archive_segment_length=300 --dvr_window_length=600 --restart_on_encoder_reconnect
     healthcheck:
       test: kill -0 1
