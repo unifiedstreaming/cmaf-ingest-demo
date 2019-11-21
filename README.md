@@ -70,16 +70,16 @@ Now that the stack is running the live stream should be available in all streami
 
 | Streaming Format | Playout URL |
 |------------------|-------------|
-| MPEG-DASH | http://localhost/test/test.isml/.mpd |
-| HLS | http://localhost/test/test.isml/.m3u8 |
-| Microsoft Smooth Streaming | http://localhost/test/test.isml/Manifest |
-| Adobe HTTP Dynamic Streaming | http://localhost/test/test.isml/.f4m |
+| MPEG-DASH | http://localhost/cmaf-ingest/cmaf-ingest.isml/.mpd |
+| HLS | http://localhost/cmaf-ingest/cmaf-ingest.isml/.m3u8 |
+| Microsoft Smooth Streaming | http://localhost/cmaf-ingest/cmaf-ingest.isml/Manifest |
+| Adobe HTTP Dynamic Streaming | http://localhost/cmaf-ingest/cmaf-ingest.isml/.f4m |
 
 
 Watching the stream can be done using your player of choice, for example FFplay.
 
 ```bash
 #!/bin/sh
-ffplay http://localhost/test/test.isml/.m3u8
+ffplay http://localhost/cmaf-ingest/cmaf-ingest.isml/.m3u8
 ```
 
