@@ -33,6 +33,8 @@ COPY tos-es-096s.cmft /home/fmp4-ingest/ingest-tools/tos-es-096s.cmft
 
 COPY tos-fr-096s.cmft /home/fmp4-ingest/ingest-tools/tos-fr-096s.cmft
 
+COPY tos-nl-096s.cmft /home/fmp4-ingest/ingest-tools/tos-nl-096s.cmft
+
 COPY scte-35.mpd /home/fmp4-ingest/ingest-tools/scte-35.mpd
 
 RUN  cd /home/fmp4-ingest/ingest-tools && ./dashEventfmp4 scte-35.mpd scte-35.cmfm
