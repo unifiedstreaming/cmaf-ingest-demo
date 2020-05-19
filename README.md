@@ -76,6 +76,8 @@ Now that the stack is running the live stream should be available in all streami
 | Adobe HTTP Dynamic Streaming | http://localhost/cmaf-ingest/cmaf-ingest.isml/.f4m |
 
 
+test
+
 Watching the stream can be done using your player of choice, for example FFplay.
 
 ```bash
