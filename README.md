@@ -7,7 +7,7 @@ This demonstration shows a [Unified Streaming](http://www.unified-streaming.com/
 
 The demo consists of two Docker containers which are deployed using Docker Compose. 
 
-![Image](cmaf_flow.png?raw=true)
+![Image](fmp4ingest_flow.png?raw=true)
 
 ## Disclaimer
 This demo utilises software which is still in development and is therefore not intended for production use.
