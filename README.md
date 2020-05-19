@@ -1,9 +1,16 @@
-# DASH-IF CMAF Live ingest to Unified Streaming Live Origin Demo
+![Image](unifiedstreaming-logo-black.jpg?raw=true)
+# Unified Streaming Live Origin Demo <br/> DASH-IF Live Media Ingest Protocal - Interface 1 (CMAF)
+
+## Overview
 
 This demonstration shows a [Unified Streaming](http://www.unified-streaming.com/products/unified-origin) Origin setup with a Live publishing point and uses the DASH-IF CMAF ingest reference code https://github.com/unifiedstreaming/fmp4-ingest.
 
 The demo consists of two Docker containers which are deployed using Docker Compose. 
 
+![Image](cmaf_flow.png?raw=true)
+
+## Disclaimer
+This demo utilises software which is still in development and is therefore not intended for production use.
 
 ## Setup
 
