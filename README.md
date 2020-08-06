@@ -56,12 +56,16 @@ You can also update the docker-compose file
 
 ```bash
 -CMAF_FILES=<cmaf files to ingest>
--CMD_ARGS=<additional command line arguments, default -r (real time) and --chunked for chunked long running posts>
+-CMD_ARGS=<additional command line arguments, default -r (real time) and --chunked for chunked long running posts> --avail 19200 4800
 ```
 
-note the sample files are 1second fragment based for low latency, using short running posts and many 
+note the sample files are 1=0.96 second fragment based for low latency, using short running posts and many 
 streams may results in performance problems in some setups. Please use long running posts when 
 using small fragment sizes.
+
+You can also include splice_insert comments by the option --avail X Y where X a cue is sent 
+every X ms with a duration of y ms. The cue is a splice_insert command with autoreturn set to true 
+and a start time k times X for k=1,2,3 and break duration d.
 
 You can also choose to run it in background (detached mode):
 
