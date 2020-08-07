@@ -1,0 +1,73 @@
+ServerName live-origin
+
+LoadModule smooth_streaming_module modules/mod_smooth_streaming.so
+LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
+LoadModule ssl_module modules/mod_ssl.so
+
+LoadModule proxy_module /usr/lib/apache2/modules/mod_proxy.so
+LoadModule proxy_http_module /usr/lib/apache2/modules/mod_proxy_http.so
+
+LogFormat {{LOG_FORMAT}} log_format
+
+UspLicenseKey /etc/usp-license.key
+
+
+<VirtualHost *:80>
+  CustomLog /dev/stdout log_format
+  ErrorLog /dev/stderr
+
+  LogLevel {{LOG_LEVEL}}
+
+  AddHandler smooth-streaming.extensions .isml
+
+  DocumentRoot /var/www/live
+
+  <Location />
+    UspHandleIsm on
+  </Location>
+  
+  <Location /mp>
+    ProxyPass https://pl8q5ug7b6.execute-api.eu-central-1.amazonaws.com
+  </Location>
+
+  Header set Access-Control-Allow-Headers "origin, range"
+  Header set Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Expose-Headers "Server,range"
+
+</VirtualHost>
+
+
+
+
+<VirtualHost *:443>
+  CustomLog /dev/stdout log_format
+  ErrorLog /dev/stderr
+  
+  SSLEngine on
+  SSLCertificateFile "/etc/apache2/ssl/server.crt"
+  SSLCertificateKeyFile "/etc/apache2/ssl/server.key"
+  LogLevel {{LOG_LEVEL}}
+
+  AddHandler smooth-streaming.extensions .isml
+
+  DocumentRoot /var/www/live
+
+  <Location />
+    UspHandleIsm on
+  </Location>
+  
+  #<Location /mp>
+  #   ProxyPass https://pl8q5ug7b6.execute-api.eu-central-1.amazonaws.com
+  #</Location>
+
+  Header set Access-Control-Allow-Headers "origin, range"
+  Header set Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Expose-Headers "Server,range"
+
+</VirtualHost>
+
+<Directory /var/www/live>
+    Require all granted
+</Directory>

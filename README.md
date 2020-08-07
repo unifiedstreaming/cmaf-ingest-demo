@@ -12,6 +12,8 @@ The demo consists of two Docker containers which are deployed using Docker Compo
 ## Disclaimer
 This demo utilises software which is still in development and is therefore not intended for production use.
 
+The branch https-multiperiod includes https functionality with self signed certificates
+
 ## Setup
 
 1. Install [Docker](http://docker.io)

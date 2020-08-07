@@ -1,11 +1,12 @@
 version: "2.2"
 services:
   live-origin:
-    image: unifiedstreaming/live:latest
+    build: ./live-origin
     ports:
       - 80:80
+      - 443:443
     environment:
-      - USP_LICENSE_KEY
+      - USP_LICENSE_KEY=cnVmYWVsQHVuaWZpZWQtc3RyZWFtaW5nLmNvbXwyMDIwMDcxNyAwMDowMDowMCwzNjB8c3RyZWFtKHZvZCxsaXZlKTtkcm0oYWVzLHNhbXBsZV9hZXMscGxheXJlYWR5LHBsYXlyZWFkeV9lbnZlbG9wZSxwaWZmMmNlbmMsZmF4cyxtYXJsaW4sd2lkZXZpbmUsZHhkcm0sdmVyaW1hdHJpeF9obHMsY29uYXhfcHJfaGxzLGlyZGV0b19za2UpO3BhY2thZ2UoZGFzaCxobHMsaXNzLGhkcyxtcDQsY21hZik7Y2FwdHVyZShpc3MsaGRzLGhscyxkYXNoLGRlY3J5cHQpO3JlbWl4KG5wdnIsdm9kKTttZXRhZGF0YSh0aW1lZCk7c3VwcG9ydCgxKTtpb19vcHQoKTtjaGVjayhldmFsdWF0aW9uKTt2ZXJzaW9uKDEuNy40KXx0cmlhbF9jb3B5fDQ1MDU5ZTAyMWU4YjQ2NmFhOGE4ZGI5MTExZDBiMDBjfDE1MzIwYzgxYzM3M2Y2YmExZTYwZWM4ZjEyNDUzODE2ZGExZGQ0ZWVhNmU0YTQ0ODk1NWQ1MmI0NDliYjFiM2RkNWY3ZTczMDFiYWM1ZDU1YmE3Y2M5ZDM3OGRlMmM3MzY5ZmY0NDlmYjUyNGE1ZDk5YjI2YzM2YmVkMDkzZjAyYjlkYTExOGEwMjJlMjcxOTgxMTFlZjljYWM0ZWYyZTE5NmE4YTE1ZTM1ZGZkMTlhNjllMjhkMDc4OGIxYjcyOTY5MDQ5Yzk0YzMzNjdkMDU3OTY1ZGMxNjIxNWRjMmRkOGUyYWNmOTZjOTk2OTI0Y2JjZWRjNWY1MjRmNDhlMTM=
       - CHANNEL=cmaf-ingest
       - PUB_POINT_OPTS=--timed_metadata --splice_media --archiving=1 --archive_length=1200 --archive_segment_length=300 --dvr_window_length=600 --restart_on_encoder_reconnect
     healthcheck:
@@ -17,8 +18,8 @@ services:
     build: ./cmaf-ingest-image
     environment:
        - PUB_POINT_URI=http://live-origin/cmaf-ingest/cmaf-ingest.isml
-       - CMAF_FILES=tos-096-750k.cmfv tos-096s-128k.cmfa tos-de-096s.cmft tos-en-096s.cmft tos-es-096s.cmft tos-fr-096s.cmft tos-nl-096s.cmft scte-35.cmfm
-       - CMD_ARGS=-r --wc_offset
+       - CMAF_FILES=tos-096-750k.cmfv tos-096s-128k.cmfa tos-fr-096s.cmft tos-nl-096s.cmft
+       - CMD_ARGS=-r --wc_offset --avail 57600 9600
        - LOGO_OVERLAY=
     depends_on:
       live-origin:
