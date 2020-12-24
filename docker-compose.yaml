@@ -1,7 +1,7 @@
 version: "2.2"
 services:
   live-origin:
-    image: unifiedstreaming/live:latest
+    image: unifiedstreaming/live:1.10.18
     ports:
       - 80:80
     environment:
