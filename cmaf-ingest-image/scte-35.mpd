@@ -46,7 +46,8 @@
       <Event
         presentationTime="2949120"
         duration="233472"
-        id="811">
+        id="811"
+        endTime="9395200">
         <Signal xmlns="http://www.scte.org/schemas/35/2016">
           <Binary>/DAhAAAAAAAAAP/wEAUAAAMrf+9//gAaF7DAAAAAAADkYSQC</Binary>
         </Signal>
@@ -58,15 +59,6 @@
         id="812">
         <Signal xmlns="http://www.scte.org/schemas/35/2016">
           <Binary>/DAhAAAAAAAAAP/wEAUAAAMsf+9//gAaF7DAAAAAAAD+zLky</Binary>
-        </Signal>
-      </Event>
-       <!-- splice insert, break starts at key frame warning break does not end at key frame -->
-      <Event
-        presentationTime="9216000"
-        duration="233472"
-        id="813">
-        <Signal xmlns="http://www.scte.org/schemas/35/2016">
-          <Binary>/DAhAAAAAAAAAP/wEAUAAAMtf+9//gAaF7DAAAAAAAAjw1hA</Binary>
         </Signal>
       </Event>
 
