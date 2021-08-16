@@ -17,7 +17,7 @@ RUN apt-get -y --no-install-recommends install \
   vim \
   libcurl4-openssl-dev
 
-RUN cd /home && git clone https://github.com/unifiedstreaming/fmp4-ingest.git && cd fmp4-ingest/ingest-tools && git clone event && https://github.com/RufaelDev/EventMessageTrackSamples.git &&  cmake CMakeLists.txt && make
+RUN cd /home && git clone https://github.com/unifiedstreaming/fmp4-ingest.git && cd fmp4-ingest/ingest-tools && git clone https://github.com/RufaelDev/EventMessageTrackSamples.git event &&  cmake CMakeLists.txt && make
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
