@@ -18,7 +18,7 @@ services:
     environment:
        - PUB_POINT_URI=http://live-origin/cmaf-ingest/cmaf-ingest.isml
        - CMAF_FILES=tos-096-750k.cmfv tos-096s-128k.cmfa tos-de-096s.cmft tos-en-096s.cmft tos-es-096s.cmft tos-fr-096s.cmft
-       - CMD_ARGS=-r -l --wc_offset --avail 57600 9600
+       - CMD_ARGS=-r -l 10000 --wc_offset --avail 57600 9600
        - LOGO_OVERLAY=
     depends_on:
       live-origin:
